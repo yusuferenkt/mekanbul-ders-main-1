@@ -23,8 +23,8 @@ function AddComment() {
         text: evt.target.elements.text.value,
       };
       VenueDataService.addComment(id, newComment).then(function () {
-        dispatch({ type: "ADD_COMMENT_SUCCESS" });
         setShowModal(true);
+        dispatch({ type: "ADD_COMMENT_SUCCESS" });
         navigate("/venue/" + id);
       });
     }
