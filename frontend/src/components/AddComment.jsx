@@ -14,18 +14,22 @@ function AddComment() {
     evt.preventDefault();
     if (
       evt.target.elements.author.value &&
-      evt.target.elements.rating.value &&
-      evt.target.elements.text.value
+      evt.target.elements.text.value &&
+      evt.target.elements.rating.value
     ) {
       let newComment = {
         author: evt.target.elements.author.value,
-        rating: evt.target.elements.rating.value,
         text: evt.target.elements.text.value,
+        rating: evt.target.elements.rating.value,
       };
-      VenueDataService.addComment(id, newComment).then(function () {
-        dispatch({ type: "ADD_COMMENT_SUCCESS" });
-        navigate("/venue/" + id);
-      });
+      VenueDataService.addComment(id, newComment)
+        .then(() => {
+          dispatch({ type: "ADD_COMMENT_SUCCESS" });
+          setShowModal(true);
+        })
+        .catch(() => {
+          dispatch({ type: "ADD_COMMENT_FAILURE" });
+        });
     }
   };
 
