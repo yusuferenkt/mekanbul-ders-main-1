@@ -23,12 +23,17 @@ function AddComment() {
         text: evt.target.elements.text.value,
       };
       VenueDataService.addComment(id, newComment).then(function () {
-        setShowModal(true);
         dispatch({ type: "ADD_COMMENT_SUCCESS" });
         navigate("/venue/" + id);
       });
     }
   };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+    navigate("/venue/" + { id });
+  };
+
   return (
     <>
       <Header headerText={location.state.name} motto=" mekanına yorum yap" />
@@ -84,10 +89,5 @@ function AddComment() {
     </>
   );
 }
-
-const handleModalClose = () => {
-  setShowModal(false);
-  navigate("/venue/${id}");
-};
 
 export default AddComment;
