@@ -7461,3 +7461,8 @@ legend {
   width: 90%;
   text-align: center;
 }
+
+.popup-content button {
+  margin-top: 10px;
+  padding: 5px 10px;
+}

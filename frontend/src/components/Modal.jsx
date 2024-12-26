@@ -1,5 +1,4 @@
 import React from "react";
-
 const Modal = ({ show, onClose, title, message }) => {
   if (!show) return null;
 
@@ -8,7 +7,7 @@ const Modal = ({ show, onClose, title, message }) => {
       <div className="popup-content">
         <h2>{title}</h2>
         <p>{message}</p>
-        <button onClick={onClose}>Close</button>
+        <button onClick={onClose}>Kapat</button>
       </div>
     </div>
   );

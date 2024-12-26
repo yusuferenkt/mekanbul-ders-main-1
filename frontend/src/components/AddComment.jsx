@@ -24,6 +24,7 @@ function AddComment() {
       };
       VenueDataService.addComment(id, newComment).then(function () {
         dispatch({ type: "ADD_COMMENT_SUCCESS" });
+        setShowModal(true);
         navigate("/venue/" + id);
       });
     }
